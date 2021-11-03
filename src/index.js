@@ -15,6 +15,7 @@ class MyGame extends Phaser.Scene
       
     create ()
     {
+        
         const logo = this.add.image(400, 150, 'logo');
       
         this.tweens.add({
@@ -29,10 +30,13 @@ class MyGame extends Phaser.Scene
 }
 
 const config = {
-    type: Phaser.AUTO,
+    type: Phaser.WEBGL,
     parent: 'phaser-example',
     width: window.innerWidth,
     height: window.innerHeight,
+    physics: {
+        default: 'arcade'
+    },
     scene: MyGame
 };
 
@@ -47,6 +51,10 @@ function resize() {
     game.canvas.height = height;
 
     game.renderer.resize( width, height );
+    game.scale.resize( width, height );
 }
 
-window.onresize = () => resize();
+const resizeHandler = () => resize();
+window.onresize = resizeHandler;
+
+screen.orientation.onchange = resizeHandler;
