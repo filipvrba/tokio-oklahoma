@@ -2,6 +2,7 @@ const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 // const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const portFinderSync = require('portfinder-sync');
 const ip = require('internal-ip');
 
@@ -58,6 +59,11 @@ module.exports = {
     // new CleanWebpackPlugin({
     //   root: path.resolve(__dirname, "../")
     // }),
+    new CopyWebpackPlugin({
+        patterns: [
+            { from: path.resolve(__dirname, '../static') }
+        ]
+    }),
     new webpack.DefinePlugin({
       CANVAS_RENDERER: JSON.stringify(true),
       WEBGL_RENDERER: JSON.stringify(true)
