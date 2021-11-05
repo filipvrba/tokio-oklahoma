@@ -15,11 +15,19 @@ function initGame() {
 		},
         physics: {
             default: 'arcade'
-        },
-        scene: levels.Main
+        }
     };
     
     const game = new Phaser.Game(config);
+    addScenes( game );
+
+}
+
+function addScenes( game ) {
+
+    game.scene.add( 'root', levels.Root, true );  // Starts first
+    game.scene.add( "loading", levels.Loading );
+    game.scene.add( "main", levels.Main );
 
 }
 
