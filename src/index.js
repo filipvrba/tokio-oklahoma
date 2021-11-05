@@ -1,6 +1,9 @@
 import Phaser from 'phaser';
 import * as levels from './scenes/levels.js';
 
+const destroyListener = () => destroyGame();
+let game = null;
+
 function initGame() {
 
     const fullHD = new Phaser.Math.Vector2( 1920, 1080 );
@@ -18,8 +21,15 @@ function initGame() {
         }
     };
     
-    const game = new Phaser.Game(config);
+    game = new Phaser.Game(config);
     addScenes( game );
+
+}
+
+function destroyGame() {
+
+    if ( game === null ) return;
+    game.destroy( true, true );
 
 }
 
@@ -31,8 +41,6 @@ function addScenes( game ) {
 
 }
 
-window.onload = () => {
-
-    initGame();
-
-}
+window.onload = () => initGame();
+window.onreset = destroyListener;
+window.onbeforeunload = destroyListener;
