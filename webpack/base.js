@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const portFinderSync = require('portfinder-sync');
 const ip = require('internal-ip');
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
 const infoColor = (_message) =>
 {
@@ -52,7 +53,21 @@ module.exports = {
       {
         test: /\.(gif|png|jpe?g|svg|xml)$/i,
         use: "file-loader"
-      }
+      },
+      // Fonts
+      {
+        test: /\.(ttf|eot|woff|woff2)$/,
+        use:
+        [
+            {
+                loader: 'file-loader',
+                options:
+                {
+                    outputPath: 'assets/fonts/'
+                }
+            }
+        ]
+    }
     ]
   },
   plugins: [
