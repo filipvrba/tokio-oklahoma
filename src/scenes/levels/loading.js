@@ -6,11 +6,23 @@ class Loading extends Phaser.Scene
     
     }
 
+    init() {
+
+        this.load.on( Phaser.Loader.Events.COMPLETE, () => this.complete() );
+
+    }
+
     preloadFiles() {
 
-        /**
-         * Textures
-         */
+        this.preloadTextures();
+        this.preloadSounds();
+
+    }
+
+    preloadTextures() {
+
+        // tomio - is loaded
+
         // Background
         this.load.image( 'bgOne', 'assets/textures/bg/bg_v1.png' );
         this.load.image( 'bgTwo', 'assets/textures/bg/bg_v2.png' );
@@ -19,15 +31,52 @@ class Loading extends Phaser.Scene
         this.load.image( 'btg', 'assets/textures/credits/btg.png' );
         this.load.image( 'credits', 'assets/textures/credits/credits.png' );
 
+        // Ground paper
+        this.load.image( 'ground', 'assets/textures/ground_paper/ground_v1.png' );
+
+        // Obstacles
+        this.load.image( 'block', 'assets/textures/obstacles/block.png' );
+        this.load.image( 'car', 'assets/textures/obstacles/CAR.png' );
+        this.load.image( 'cloud', 'assets/textures/obstacles/CLOUD.png' );
+        this.load.image( 'euflag', 'assets/textures/obstacles/euflag.png' );
+        this.load.image( 'pesmg', 'assets/textures/obstacles/pesmg.png' );
+        this.load.image( 'probe', 'assets/textures/obstacles/probe.png' );
+
+        // Scoreboard
+        this.load.image( 'butt', 'assets/textures/scoreboard/butt.png' );
+        this.load.image( 'okbutton', 'assets/textures/scoreboard/okbutton.png' );
+        this.load.image( 'scoreboardfui', 'assets/textures/scoreboard/scoreboardfui.png' );
+
+        // Start screen
+        this.load.image( 'tap2fly', 'assets/textures/startscreen/tap2fly.png' );
+        this.load.image( 'to', 'assets/textures/startscreen/to.png' );
+
     }
 
-    preload ()
-    {
+    preloadSounds() {
+
+        // Ambient
+        this.load.audio( 'ambiend_01', 'assets/sounds/ambiend/ambiend_01.mp3' );
+
+        // Click
+        this.load.audio( 'click_01', 'assets/sounds/click/click_01.mp3' );
+        this.load.audio( 'click_02', 'assets/sounds/click/click_02.mp3' );
+        this.load.audio( 'click_03', 'assets/sounds/click/click_03.mp3' );
+
+        // Click
+        this.load.audio( 'die_01', 'assets/sounds/die/die_01.wav' );
+
+        // Music
+        this.load.audio( 'music_01', 'assets/sounds/music/music_01.mp3' );
+        this.load.audio( 'music_02', 'assets/sounds/music/music_02.mp3' );
+        this.load.audio( 'music_03', 'assets/sounds/music/music_03.mp3' );
+
+    }
+
+    preload () {
 
         this.createLoader();
         this.preloadFiles();
-        
-        this.load.on( Phaser.Loader.Events.COMPLETE, () => this.complete() );
         
     }
 

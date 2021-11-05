@@ -6,10 +6,15 @@ class Root extends Phaser.Scene
     
     }
 
+    init() {
+
+        this.load.on( Phaser.Loader.Events.COMPLETE, () => this.complete() );
+
+    }
+
     preload () {
 
         this.load.image( 'tomio', 'assets/textures/tom.png' );
-        this.load.on( Phaser.Loader.Events.COMPLETE, () => this.complete() );
         
     }
 
