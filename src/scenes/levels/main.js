@@ -1,4 +1,4 @@
-import { Background } from "../backgrounds/background.js";
+import { Background } from "../../gameObjects.js";
 
 class Main extends Phaser.Scene
 {
@@ -8,17 +8,22 @@ class Main extends Phaser.Scene
     
     }
 
-    preload ()
-    {
+    init() {
 
-        
-        
+        this.background = new Background( this, 'bg' );
+
     }
       
     create ()
     {
         
-        // this.scene.add()
+        // this.background.create();
+
+    }
+
+    update( time, dt ) {
+
+        // this.background.preUpdate( time, dt );
 
     }
 }
