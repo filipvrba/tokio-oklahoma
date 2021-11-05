@@ -29,6 +29,9 @@ function initGame() {
 function destroyGame() {
 
     if ( game === null ) return;
+
+    game.registry.destroy();
+    game.events.destroy();
     game.destroy( true, true );
 
 }
@@ -44,3 +47,4 @@ function addScenes( game ) {
 window.onload = () => initGame();
 window.onreset = destroyListener;
 window.onbeforeunload = destroyListener;
+window.onclose = destroyGame;

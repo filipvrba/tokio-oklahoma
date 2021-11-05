@@ -16,7 +16,7 @@ class Main extends Phaser.Scene
       
     create ()
     {
-        
+        // this.sys.game.destroy( true, true );
         // this.background.create();
 
     }
