@@ -14,16 +14,15 @@ class Main extends Phaser.Scene
 
     }
       
-    create ()
-    {
-        // this.sys.game.destroy( true, true );
-        // this.background.create();
+    create () {
+        
+        
 
     }
 
     update( time, dt ) {
 
-        // this.background.preUpdate( time, dt );
+        
 
     }
 }
