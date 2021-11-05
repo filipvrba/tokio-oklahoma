@@ -26,12 +26,16 @@ function initGame() {
 
 }
 
+/**
+ * This function is that sucks.
+ * @returns stop function if game propery is null.
+ */
 function destroyGame() {
 
     if ( game === null ) return;
 
     game.registry.destroy();
-    game.events.destroy();
+    game.cache.destroy();
     game.destroy( true, true );
 
 }
