@@ -1,16 +1,13 @@
-class Background extends Phaser.GameObjects.GameObject
+import { ObjectMoving } from "./objectMoving.js";
+
+class Background extends ObjectMoving
 {
     constructor( scene, type )
     {
         super( scene, type );
 
-        this.createListener = () => this.create();
-        this.updateListener = (t, d) => this.update(t, d / 100);
+        this.scene.cameras.main.setBackgroundColor( '#efefef' );
 
-        this.scene.events.on( Phaser.Scenes.Events.CREATE, this.createListener );
-        this.scene.events.on( Phaser.Scenes.Events.UPDATE, this.updateListener );
-
-        this.speed = 20;
         this.widthOneBG = 0;  // Inicialize in during creating process.
         this.widthOneGround = 0;  // Inicialize in during creating process.
 
@@ -59,12 +56,16 @@ class Background extends Phaser.GameObjects.GameObject
     update( time, dt ) {
 
         // Backgrounds
-        this.bgMovement( this.bgOne, dt );
-        this.bgMovement( this.bgTwo, dt );
+        if ( this.bgOne && this.bgTwo ) {
+            this.bgMovement( this.bgOne, dt );
+            this.bgMovement( this.bgTwo, dt );
+        }
 
         // Grounds
-        this.groundMovement( this.groundOne, dt );
-        this.groundMovement( this.groundTwo, dt );
+        if ( this.groundOne && this.groundTwo ) {
+            this.groundMovement( this.groundOne, dt );
+            this.groundMovement( this.groundTwo, dt );
+        }
 
     }
 
@@ -72,7 +73,7 @@ class Background extends Phaser.GameObjects.GameObject
 
         const data = {
             image, width: this.widthOneBG,
-            velocity: this.speed * dt
+            velocity: this.getSpeed() * dt
         };
         this.movement( data );
 
@@ -82,34 +83,10 @@ class Background extends Phaser.GameObjects.GameObject
 
         const data = {
             image, width: this.widthOneGround,
-            velocity: ( this.speed * 2 ) * dt
+            velocity: ( this.getSpeed() * 2 ) * dt
         };
         this.movement( data );
 
-    }
-
-    movement( data ) {
-
-        const { image, width, velocity } = data;
-
-        if ( image.x <= -width ) {
-
-            image.x = width - velocity * 2;
-
-        } else {
-
-            image.x -= velocity;
-
-        }
-
-    }
-
-    destroy( fromScene = false ) {
-
-        this.scene.events.off( Phaser.Scenes.Events.CREATE, this.createListener );
-        this.scene.events.off( Phaser.Scenes.Events.UPDATE, this.updateListener );
-
-        super.destroy( fromScene );
     }
 
 }

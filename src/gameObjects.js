@@ -1,1 +1,2 @@
-export { Background } from './gameObjects/backgrounds/background.js';
+export { Background } from './gameObjects/background.js';
+export { Obstacles } from './gameObjects/obstacles.js';

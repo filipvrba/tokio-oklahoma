@@ -1,11 +1,11 @@
 const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-// const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const portFinderSync = require('portfinder-sync');
 const ip = require('internal-ip');
-const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
+//const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
 const infoColor = (_message) =>
 {
@@ -71,9 +71,9 @@ module.exports = {
     ]
   },
   plugins: [
-    // new CleanWebpackPlugin({
-    //   root: path.resolve(__dirname, "../")
-    // }),
+    new CleanWebpackPlugin({
+      root: path.resolve(__dirname, "../")
+    }),
     new CopyWebpackPlugin({
         patterns: [
             { from: path.resolve(__dirname, '../static') }

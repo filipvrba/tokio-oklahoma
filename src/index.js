@@ -1,54 +1,5 @@
 import Phaser from 'phaser';
-import * as levels from './scenes/levels.js';
+import * as cons from './constants.js';
+import { PhaserElement } from './elements/phaserElement.js';
 
-const destroyListener = () => destroyGame();
-let game = null;
-
-function initGame() {
-
-    const fullHD = new Phaser.Math.Vector2( 1920, 1080 );
-
-    const config = {
-        type: Phaser.AUTO,
-        width: fullHD.y,
-        height: fullHD.x,
-        scale: {
-			mode: Phaser.Scale.FIT,
-			autoCenter: Phaser.Scale.CENTER_BOTH
-		},
-        physics: {
-            default: 'arcade'
-        }
-    };
-    
-    game = new Phaser.Game(config);
-    addScenes( game );
-
-}
-
-/**
- * This function is that sucks.
- * @returns stop function if game propery is null.
- */
-function destroyGame() {
-
-    if ( game === null ) return;
-
-    game.registry.destroy();
-    game.cache.destroy();
-    game.destroy( true, true );
-
-}
-
-function addScenes( game ) {
-
-    game.scene.add( 'root', levels.Root, true );  // Starts first
-    game.scene.add( "loading", levels.Loading );
-    game.scene.add( "main", levels.Main );
-
-}
-
-window.onload = () => initGame();
-window.onreset = destroyListener;
-window.onbeforeunload = destroyListener;
-window.onclose = destroyGame;
+window.customElements.define( cons.PHASER, PhaserElement );

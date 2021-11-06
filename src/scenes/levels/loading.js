@@ -1,3 +1,5 @@
+import * as constants from '../../constants.js';
+
 class Loading extends Phaser.Scene
 {
     constructor ()
@@ -35,12 +37,12 @@ class Loading extends Phaser.Scene
         this.load.image( 'ground', 'assets/textures/ground_paper/ground_v1.png' );
 
         // Obstacles
-        this.load.image( 'block', 'assets/textures/obstacles/block.png' );
-        this.load.image( 'car', 'assets/textures/obstacles/CAR.png' );
-        this.load.image( 'cloud', 'assets/textures/obstacles/CLOUD.png' );
-        this.load.image( 'euflag', 'assets/textures/obstacles/euflag.png' );
-        this.load.image( 'pesmg', 'assets/textures/obstacles/pesmg.png' );
-        this.load.image( 'probe', 'assets/textures/obstacles/probe.png' );
+        this.load.image( constants.BLOCK, 'assets/textures/obstacles/block.png' );
+        this.load.image( constants.CAR, 'assets/textures/obstacles/CAR.png' );
+        this.load.image( constants.CLOUD, 'assets/textures/obstacles/CLOUD.png' );
+        this.load.image( constants.EUFLAG, 'assets/textures/obstacles/euflag.png' );
+        this.load.image( constants.PESMG, 'assets/textures/obstacles/pesmg.png' );
+        this.load.image( constants.PROBE, 'assets/textures/obstacles/probe.png' );
 
         // Scoreboard
         this.load.image( 'butt', 'assets/textures/scoreboard/butt.png' );

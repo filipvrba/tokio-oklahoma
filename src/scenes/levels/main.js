@@ -1,4 +1,4 @@
-import { Background } from "../../gameObjects.js";
+import * as gameObjects from "../../gameObjects.js";
 
 class Main extends Phaser.Scene
 {
@@ -10,19 +10,16 @@ class Main extends Phaser.Scene
 
     init() {
 
-        this.background = new Background( this, 'bg' );
-
-    }
-      
-    create () {
+        const background = new gameObjects.Background( this, 'background' );
+        background.setSpeed( 20 );
         
-        
+        const obstacles = new gameObjects.Obstacles( this, 'obstacles' );
 
     }
 
-    update( time, dt ) {
+    create() {
 
-        
+       
 
     }
 }
