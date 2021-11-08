@@ -24,13 +24,16 @@ class ObjectMoving extends BasicObject {
 
     }
 
-    movement( data ) {
+    movement( data, isChangePosition = true ) {
 
         const { image, width, velocity, positionX, type } = data;
 
         if ( image.x <= -width ) {
 
-            image.x = ( positionX + width ) - velocity;
+            if (isChangePosition) {
+                
+                image.x = ( positionX + width ) - velocity;
+            }
             this.emit( cons.RESET_MOVEMENT, type );
 
         } else {

@@ -14,6 +14,7 @@ class Main extends Phaser.Scene
         this.background.setSpeed( 20 );
         
         const obstacles = new gameObjects.Obstacles( this, 'obstacles' );
+        obstacles.setSpeed( 0 );
 
     }
 
