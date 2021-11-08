@@ -10,10 +10,16 @@ class Main extends Phaser.Scene
 
     init() {
 
-        const background = new gameObjects.Background( this, 'background' );
-        background.setSpeed( 20 );
+        this.background = new gameObjects.Background( this, 'background' );
+        this.background.setSpeed( 20 );
         
         const obstacles = new gameObjects.Obstacles( this, 'obstacles' );
+
+    }
+
+    getBackground() {
+
+        return this.background;
 
     }
 

@@ -1,4 +1,5 @@
 import { BasicObject } from './basicObject.js';
+import * as cons from '../constants';
 
 class ObjectMoving extends BasicObject {
 
@@ -25,11 +26,12 @@ class ObjectMoving extends BasicObject {
 
     movement( data ) {
 
-        const { image, width, velocity } = data;
+        const { image, width, velocity, positionX, type } = data;
 
         if ( image.x <= -width ) {
 
-            image.x = width - velocity * 2;
+            image.x = ( positionX + width ) - velocity;
+            this.emit( cons.RESET_MOVEMENT, type );
 
         } else {
 

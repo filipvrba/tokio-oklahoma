@@ -8,7 +8,6 @@ class BasicObject extends Phaser.GameObjects.GameObject {
         this.updateListener = (t, d) => this.update(t, d / 100);
 
         this.connect();
-
     }
 
     connect() {

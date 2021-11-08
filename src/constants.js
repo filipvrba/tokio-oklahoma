@@ -9,9 +9,18 @@ export const CLOUD = 'cloud';
 export const EUFLAG = 'euflag';
 export const PESMG = 'pesmg';
 export const PROBE = 'probe';
+export const GROUND = 'ground';  // And type
+export const BG_ONE = 'bgOne';
+export const BG_TWO = 'bgTwo';
 
 // Window events
 export const LOAD = 'load';
 export const RESET = 'reset';
 export const BEFORE = 'beforeunload';
 export const CLOSE = 'close';
+
+// Movement
+export const RESET_MOVEMENT = 'reset-movement';
+
+// Types
+export const BG = 'bg';

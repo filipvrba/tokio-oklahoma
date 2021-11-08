@@ -26,15 +26,15 @@ class Loading extends Phaser.Scene
         // tomio - is loaded
 
         // Background
-        this.load.image( 'bgOne', 'assets/textures/bg/bg_v1.png' );
-        this.load.image( 'bgTwo', 'assets/textures/bg/bg_v2.png' );
+        this.load.image( constants.BG_ONE, 'assets/textures/bg/bg_v1.png' );
+        this.load.image( constants.BG_TWO, 'assets/textures/bg/bg_v2.png' );
 
         // Credits
         this.load.image( 'btg', 'assets/textures/credits/btg.png' );
         this.load.image( 'credits', 'assets/textures/credits/credits.png' );
 
         // Ground paper
-        this.load.image( 'ground', 'assets/textures/ground_paper/ground_v1.png' );
+        this.load.image( constants.GROUND, 'assets/textures/ground_paper/ground_v1.png' );
 
         // Obstacles
         this.load.image( constants.BLOCK, 'assets/textures/obstacles/block.png' );
