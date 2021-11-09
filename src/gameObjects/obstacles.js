@@ -5,9 +5,9 @@ import * as cons from '../constants';
 
 class Obstacles extends ObjectMoving {
 
-    constructor( scene, type ) {
+    constructor( scene ) {
 
-        super( scene, type );
+        super( scene, cons.OBSTACLES );
 
         this.resetMovementListener = (type) => this.resetMovement(type);
 

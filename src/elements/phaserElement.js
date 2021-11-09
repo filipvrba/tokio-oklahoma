@@ -35,7 +35,8 @@ class PhaserElement extends HTMLElement {
                 autoCenter: Phaser.Scale.CENTER_BOTH
             },
             physics: {
-                default: 'arcade'
+                default: 'arcade',
+                arcade:{debug:true}
             }
         };
         

@@ -12,6 +12,7 @@ export const PROBE = 'probe';
 export const GROUND = 'ground';  // And type
 export const BG_ONE = 'bgOne';
 export const BG_TWO = 'bgTwo';
+export const TOMIO = 'tomio';
 
 // Window events
 export const LOAD = 'load';
@@ -24,3 +25,5 @@ export const RESET_MOVEMENT = 'reset-movement';
 
 // Types
 export const BG = 'bg';
+export const BACKGROUND = 'background';
+export const OBSTACLES = 'obstacles';

@@ -1,3 +1,5 @@
+import { TOMIO } from '../../constants.js';
+
 class Root extends Phaser.Scene
 {
     constructor ()
@@ -14,7 +16,7 @@ class Root extends Phaser.Scene
 
     preload () {
 
-        this.load.image( 'tomio', 'assets/textures/tom.png' );
+        this.load.image( TOMIO, 'assets/textures/tom.png' );
         
     }
 
