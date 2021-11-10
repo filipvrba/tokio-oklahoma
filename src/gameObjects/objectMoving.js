@@ -7,9 +7,10 @@ class ObjectMoving extends BasicObject {
 
         super( scene, type );
 
+        this.devMode = false;
+
         // I do not want apply private field.
         this._speed = 0;
-
     }
 
     getSpeed() {
@@ -25,6 +26,8 @@ class ObjectMoving extends BasicObject {
     }
 
     movement( data, isChangePosition = true ) {
+
+        if ( this.devMode ) return;
 
         const { image, width, velocity, positionX, type } = data;
 

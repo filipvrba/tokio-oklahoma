@@ -24,6 +24,7 @@ class Loading extends Phaser.Scene
     preloadTextures() {
 
         // tomio - is loaded
+        this.load.image( constants.PIXEL, 'assets/textures/pixel.png' )
 
         // Background
         this.load.image( constants.BG_ONE, 'assets/textures/bg/bg_v1.png' );

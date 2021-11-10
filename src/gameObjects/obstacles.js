@@ -55,28 +55,47 @@ class Obstacles extends ObjectMoving {
 
     spawnObstacle() {
 
-        const camera = this.scene.cameras.main;
-
         const randomHeigth = Mathf.random( 0.1, 0.4 );
         const topObstacles = this.createdObstacles.getTopObstacles();
         this.topObstacle = this.getObstacle( topObstacles );
-        this.topObstacle.setPosition( this.topObstacle.x, camera.height * randomHeigth );
+        const positionX = this.getPositionX( this.topObstacle.x )
+        this.topObstacle.setPosition( positionX, this.camera.height * randomHeigth );
         this.topObstacle.setOrigin( 0.5, 1 );
         this.topObstacle.setScale( 1.5, 1.5 );
 
         const bottomObstacles = this.createdObstacles.getBottomObstacles();
         this.bottomObstacle = this.getObstacle( bottomObstacles );
-        this.bottomObstacle.setPosition( this.topObstacle.x, this.topObstacle.y + this.heightSpace );
+        this.bottomObstacle.setPosition( positionX, this.topObstacle.y + this.heightSpace );
         this.bottomObstacle.setOrigin( 0.5, 0 );
         this.bottomObstacle.setScale( 1.25, 1.25 );
     }
 
-    getObstacle( obstacles ) {
+    getPositionX( x ) {
+
+        if ( this.devMode ) {
+
+            return this.camera.width * 0.5;
+
+        } else {
+
+            return x;
+        }
+    }
+
+    getObstacle( obstacles, id = 0 ) {
 
         const length = obstacles.length;
-        const id = Math.floor( Math.random() * length );
 
-        return obstacles[ id ];
+        if ( this.devMode ) {
+
+            console.log( obstacles.toString(), length );
+            return obstacles[ id ];
+
+        } else {
+
+            id = Math.floor( Math.random() * length );
+            return obstacles[ id ];
+        }
     }
 
     resetMovement( type ) {

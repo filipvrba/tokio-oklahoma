@@ -16,12 +16,8 @@ class Tomio extends Character {
             camera.height / 2, TOMIO );
         this.tomio.body.setSize( this.tomio.width, this.tomio.height * 0.5, true);
 
-        this.tomio.setGravityY( this.gravity  );
-
-        this.scene.physics.collide( this.tomio, this.scene.getBackground().collision, () => {
-
-            console.log( 'collide' );
-        } )
+        this.tomio.setGravityY( this.gravity );
+        this.tomio.setCollideWorldBounds(true);
     }
 
     jump() {

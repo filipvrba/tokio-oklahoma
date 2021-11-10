@@ -13,6 +13,7 @@ export const GROUND = 'ground';  // And type
 export const BG_ONE = 'bgOne';
 export const BG_TWO = 'bgTwo';
 export const TOMIO = 'tomio';
+export const PIXEL = 'pixel';
 
 // Window events
 export const LOAD = 'load';

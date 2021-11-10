@@ -12,6 +12,7 @@ class Main extends Phaser.Scene
         this.background = new gameObjects.Background( this );
         this.background.setSpeed( 20 );
         
+        // TODO - create obstacles with collisions
         const obstacles = new gameObjects.Obstacles( this );
         obstacles.setSpeed( this.background.ground.getVelocity() );
 

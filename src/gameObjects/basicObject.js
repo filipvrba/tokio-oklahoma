@@ -31,6 +31,11 @@ class BasicObject extends Phaser.GameObjects.GameObject {
         super.destroy( fromScene );
     }
 
+    get camera() {
+
+        return this.scene.cameras.main;
+    }
+
     // Virtual functions
     create() { }
     update( time, dt ) { }
